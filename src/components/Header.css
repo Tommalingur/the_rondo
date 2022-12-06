@@ -1,0 +1,98 @@
+
+.Nav {
+    display: grid, block;
+    justify-self: start;
+    grid-area: nav;
+}
+
+.Logo {
+    justify-self: center;
+    grid-area: logo;
+}
+
+.DropDown {
+    display: none;
+}
+
+.Rondo {
+    display: block;
+    justify-self: start;
+    grid-area: rondo;
+}
+
+@media (max-width: 1160px) {
+    .Header {
+        grid-template-areas: ". drop . logo rondo rondo .";
+        width: 100vw;
+        grid-area: header;
+    }
+
+    .Nav {
+        display: none;
+    }
+
+    .Rondo {
+        display: block;
+    }
+
+    .Logo {
+        justify-self: center;
+        grid-area: logo;
+    }
+
+    .DropDown {
+        display: block;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .DropDiv {
+        grid-area: drop;
+        position: relative;
+    }
+
+    .DropMenu {
+        position: absolute;
+    }
+}
+
+@media (max-width: 840px) {
+    .Header {
+        grid-template-areas:
+            ". drop drop . logo logo ."
+            ". . rondo rondo rondo . .";
+        width: 100vw;
+        grid-gap: 10px;
+        grid-area: header;
+    }
+
+    .Nav {
+        display: none;
+    }
+
+    .DropDown {
+        display: block;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .Rondo {
+        display: block;
+        justify-self: center;
+        grid-area: rondo;
+    }
+
+    .Logo {
+        justify-self: center;
+        grid-area: logo;
+    }
+
+    .DropDiv {
+        grid-area: drop;
+        position: relative;
+    }
+
+    .DropMenu {
+        position: absolute;
+    }
+}
