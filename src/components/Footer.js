@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import styled from "styled-components";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -8,10 +8,60 @@ import { FaSnapchatGhost } from "react-icons/fa";
 import { FaAt } from "react-icons/fa";
 import { FooterButton } from "./Components";
 
+const FooterGrid = styled.div`
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    ". social logo email .";
+    grid-area: footer;
+    @media (max-width: 840px) {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "social social social social email";
+    }
+`;
+
+const Social = styled.div`
+    display: flex;
+    grid-area: social;
+    color: var(--clr - secondary);
+    align-self: center;
+    justify-content: space - between;
+`;
+
+const Email = styled.div`
+    display: flex;
+    grid-area: email;
+    color: var(--clr - secondary);
+    align-self: center;
+    align-items: center;
+    justify-content: flex - start;
+`;
+
+const FooterLogo = styled.div`
+    display: block;
+    grid-area: logo;
+    align-self: center;
+    @media (max-width: 840px) {
+    display: none;
+    align-self: center;
+    }
+`;
+
+const EmailP = styled.div`
+    display: block;
+    @media (max-width: 840px) {
+    display:none
+    }
+`;
+
 export default function Footer() {
     return (
-        <div className="Footer">
-            <div className="Social">
+        <FooterGrid>
+            <Social>
                 <FooterButton>
                     <FaFacebookF size={28} />
                 </FooterButton>
@@ -27,8 +77,8 @@ export default function Footer() {
                 <FooterButton>
                     <FaSnapchatGhost size={28} />
                 </FooterButton>
-            </div>
-            <div className="FooterLogo">
+            </Social>
+            <FooterLogo>
                 <img
                     width={50}
                     height={50}
@@ -36,13 +86,13 @@ export default function Footer() {
                     className="Logo"
                     alt="logo"
                 />
-            </div>
-            <div className="Email">
+            </FooterLogo>
+            <Email>
                 <FooterButton>
                     <FaAt size={28} />
-                    <p className="EmailP">therondo@therondo.com</p>
+                    <EmailP>therondo@therondo.com</EmailP>
                 </FooterButton>
-            </div>
-        </div>
+            </Email>
+        </FooterGrid>
     );
 }

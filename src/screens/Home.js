@@ -4,18 +4,6 @@ import Footer from "../components/Footer";
 import React from "react";
 import styled from "styled-components";
 
-const MainGrid = styled.div`
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    grid-template-columns: 0,5fr 2fr 2fr 0,5fr;
-    grid-template-rows: 1fr 4fr 1fr;
-    grid-template-areas:
-    "header header header header"
-    "body body body body"
-    "footer footer footer footer";
-`;
-
 const HomeGrid = styled.div`
     display: grid;
     width: 100vw;
@@ -25,6 +13,17 @@ const HomeGrid = styled.div`
     ". mainarticle mainarticle mainarticle articlelist articlelist ."
     "newslist newslist newslist newslist newslist newslist newslist";
     grid - area: body;
+    @media (max-width: 1060px) {
+    display: grid;
+    margin-top: 20px;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-areas:
+    ". mainarticle mainarticle mainarticle mainarticle mainarticle ."
+    ". articlelist articlelist articlelist articlelist articlelist ."
+    "newslist newslist newslist newslist newslist newslist newslist";
+    }
 `;
 
 const MainArticleContent = styled.div`
@@ -45,15 +44,15 @@ const NewsContent = styled.div`
 
 function Home() {
     return (
-        <MainGrid>
+        <div className="MainGrid">
             <Header />
             <HomeGrid>
                 <MainArticleContent />
                 <ArticleListContent />
-                <NewsContent/>
+                <NewsContent />
             </HomeGrid>
-            <Footer/>
-        </MainGrid>
+            <Footer />
+        </div>
     );
 }
 
