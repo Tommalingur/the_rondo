@@ -38,7 +38,7 @@ const ArticleListContent = styled.div`
 
 const NewsContent = styled.div`
     display: grid;
-    background-color: var(--clr - secondary);
+    background-color: var(--clr-secondary);
     grid-area: newslist;
 `;
 
