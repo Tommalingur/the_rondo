@@ -1,0 +1,2 @@
+C:\ntv\tridjaonn\lokaverkefni\therondofrontend\therondofrontend\obj\Debug\therondofrontend.esproj.SuggestedBindingRedirects.cache
+C:\ntv\tridjaonn\lokaverkefni\therondofrontend\therondofrontend\obj\Debug\therondofrontend.esproj.CoreCompileInputs.cache

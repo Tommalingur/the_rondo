@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto-Medium'), url(./assets/fonts/Roboto-Medium.ttf);
+}
+
+:root {
+    --clr-primary: #497174;
+    --clr-secondary: #D6E4E5;
+    --clr-alert: #EFF5F5;
+    --clr-hover: #EB6440;
+}
+
+body {
+    background-color: var(--clr-primary);
+    font-family: 'Roboto';
+    color: var(--clr-alert);
+    text-align: center;
+}

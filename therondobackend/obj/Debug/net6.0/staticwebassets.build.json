@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "wpsZYwhd4HpAYSw80afnEoGs3hbms6DBedYeabIyI2E=",
+  "Source": "therondoAPI",
+  "BasePath": "_content/therondoAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "therondoAPI\\wwwroot",
+      "Source": "therondoAPI",
+      "ContentRoot": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\",
+      "BasePath": "_content/therondoAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\images\\Messi.jpg",
+      "SourceId": "therondoAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\",
+      "BasePath": "_content/therondoAPI",
+      "RelativePath": "images/Messi.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Messi.jpg"
+    }
+  ]
+}

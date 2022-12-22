@@ -1,0 +1,11 @@
+.MainGrid {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 0,5fr 2fr 2fr 0,5fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas:
+        "header header header header"
+        "body body body body"
+        "footer footer footer footer";
+}
