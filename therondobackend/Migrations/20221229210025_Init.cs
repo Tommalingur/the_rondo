@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace therondoAPI.Migrations
 {
@@ -17,7 +20,9 @@ namespace therondoAPI.Migrations
                     AdminId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
+                    LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +51,8 @@ namespace therondoAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeadLine = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Content = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    AdminId = table.Column<int>(type: "int", nullable: false)
+                    AdminId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,6 +73,7 @@ namespace therondoAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeadLine = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Content = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AdminId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -87,6 +94,7 @@ namespace therondoAPI.Migrations
                     CommentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -98,6 +106,31 @@ namespace therondoAPI.Migrations
                         principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Admins",
+                columns: new[] { "AdminId", "FirstName", "LastName", "Password", "UserName" },
+                values: new object[] { 1, "Tómas", "Gunnarsson", "SafePW", "Tommi_Admin" });
+
+            migrationBuilder.InsertData(
+                table: "Articles",
+                columns: new[] { "ArticleId", "AdminId", "Content", "CreatedDate", "HeadLine" },
+                values: new object[,]
+                {
+                    { 1, 1, "Awesome article text 1", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3920), "Awesome article 1" },
+                    { 2, 1, "Awesome article text 2", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3921), "Awesome article 2" },
+                    { 3, 1, "Awesome article text 3", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3922), "Awesome article 3" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "NewsPieces",
+                columns: new[] { "NewsPieceId", "AdminId", "Content", "CreatedDate", "HeadLine" },
+                values: new object[,]
+                {
+                    { 1, 1, "Awesome news text 1", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3950), "Awesome news 1" },
+                    { 2, 1, "Awesome news text 2", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3951), "Awesome news 2" },
+                    { 3, 1, "Awesome news text 3", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3952), "Awesome news 3" }
                 });
 
             migrationBuilder.CreateIndex(

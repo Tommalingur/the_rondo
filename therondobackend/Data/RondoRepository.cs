@@ -1,8 +1,9 @@
-﻿using therondoAPI.Models;
+﻿using therondoAPI.Data.Interfaces;
+using therondoAPI.Models;
 
 namespace therondoAPI.Data
 {
-    public class RondoRepository
+    public class RondoRepository : IRondoRepository
     {
 
         private RondoDbContext _dbContext;
@@ -10,6 +11,16 @@ namespace therondoAPI.Data
         public RondoRepository()
         {
             _dbContext = new RondoDbContext();
+        }
+
+        public List<Admin> GetAllAdmins()
+        {
+            return _dbContext.Admins.ToList();
+        }
+
+        public List<Article> GetAllArticles()
+        {
+            return _dbContext.Articles.ToList();
         }
 
         public List<User> GetAllUsers()

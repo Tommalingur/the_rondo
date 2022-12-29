@@ -15,10 +15,8 @@
 
 // Home: Make Articles and News show in time order on screen.
 // Make Articles and News thumbnails routable to article or news screens.
-// Add Sign in popup where you can sign in to your account.
 // Connect Sign in popup to User db to accept username and password.
 // Add error message if credentials are incorrect or are not in database.
-// Add button on Sign In popup so user can sign up and create a new account.
 
 // SignUp: Create a Sign Up screen routed through Sign Up button in Sign In popup at Home screen.
 // Connect Sign Up screen to user database to enable adding new users.
@@ -28,6 +26,6 @@
 // Admin should also be able to add a picture.
 // The created content should be time stamped and show on top in Article or News thumbnails on Home, Article or News screens.
 
-// Admin: Make admin user so that he has privileges
+// Admin: Make admin user so that he has privileges (Check out RBAC(Role Base Access Control) for authentication and authorization)
 // Admin should be able to access Add Content screen, but normal users should not.
 // IF TIME: Admin should be able to access list of users and make changes (Ban, unban, make admin)

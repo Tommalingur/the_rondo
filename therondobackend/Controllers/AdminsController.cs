@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using therondoAPI.Data;
+using therondoAPI.Data.Interfaces;
 using therondoAPI.Models;
 
 namespace therondoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admins")]
     [ApiController]
     public class AdminsController : ControllerBase
     {
-        private MockRepository _repo;
+        private IRondoRepository _repo;
 
-        public AdminsController()
+        public AdminsController(IRondoRepository repo)
         {
-            _repo = new MockRepository();
+            _repo = repo;
         }
 
         [HttpGet]

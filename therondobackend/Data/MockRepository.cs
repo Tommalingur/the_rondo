@@ -1,14 +1,16 @@
-﻿using therondoAPI.Models;
+﻿using therondoAPI.Data.Interfaces;
+using therondoAPI.Models;
 
 namespace therondoAPI.Data
 {
-    public class MockRepository
+    public class MockRepository : IRondoRepository
     {
 
         List<Admin> Admins = new List<Admin>()
         {
             new Admin() { AdminId = 1, FirstName = "Tómas", LastName = "Gunnarsson"},
             new Admin() { AdminId = 2, FirstName = "Kristinn", LastName = "Gunn"},
+            new Admin() { AdminId = 3, FirstName = "", LastName = ""}
         };
 
         public List<Admin> GetAllAdmins()
@@ -25,6 +27,16 @@ namespace therondoAPI.Data
         public List<Article> GetAllArticles()
         {
             return Articles;
+        }
+
+        List<User> Users = new List<User>()
+        {
+            new User() { UserId = 1, FirstName = "Hemmi", LastName = "Gunn" },
+            new User() { UserId = 2, FirstName = "Páll", LastName = "Óskar" }
+        };
+        public List<User> GetAllUsers()
+        {
+            return Users;
         }
     }
 }

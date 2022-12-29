@@ -7,7 +7,8 @@ namespace therondoAPI.Models
     {
         public Article()
         {
-            Admin = new Admin();
+
+            CreatedDate = DateTime.Now;
         }
         public int ArticleId { get; set; }
         [MaxLength(255)]
@@ -15,6 +16,8 @@ namespace therondoAPI.Models
         [MaxLength(255)]
         public string? Content { get; set; }
         public int AdminId { get; set; }
-        public Admin? Admin { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+        public Admin Admin { get; set; }
     }
 }

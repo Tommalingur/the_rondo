@@ -6,7 +6,7 @@ namespace therondoAPI.Models
     {
         public User()
         {
-            Comments = new List<Comment>();
+
         }
         public int UserId { get; set; }
         [MaxLength(255)]
