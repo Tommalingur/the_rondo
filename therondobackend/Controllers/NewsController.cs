@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace therondoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class NewsController : ControllerBase
     {

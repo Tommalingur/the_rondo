@@ -114,13 +114,18 @@ namespace therondoAPI.Migrations
                 values: new object[] { 1, "Tómas", "Gunnarsson", "SafePW", "Tommi_Admin" });
 
             migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "UserId", "FirstName", "LastName" },
+                values: new object[] { 1, "TheFirst", "Avenger" });
+
+            migrationBuilder.InsertData(
                 table: "Articles",
                 columns: new[] { "ArticleId", "AdminId", "Content", "CreatedDate", "HeadLine" },
                 values: new object[,]
                 {
-                    { 1, 1, "Awesome article text 1", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3920), "Awesome article 1" },
-                    { 2, 1, "Awesome article text 2", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3921), "Awesome article 2" },
-                    { 3, 1, "Awesome article text 3", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3922), "Awesome article 3" }
+                    { 1, 1, "Awesome article text 1", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2826), "Awesome article 1" },
+                    { 2, 1, "Awesome article text 2", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2828), "Awesome article 2" },
+                    { 3, 1, "Awesome article text 3", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2829), "Awesome article 3" }
                 });
 
             migrationBuilder.InsertData(
@@ -128,9 +133,9 @@ namespace therondoAPI.Migrations
                 columns: new[] { "NewsPieceId", "AdminId", "Content", "CreatedDate", "HeadLine" },
                 values: new object[,]
                 {
-                    { 1, 1, "Awesome news text 1", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3950), "Awesome news 1" },
-                    { 2, 1, "Awesome news text 2", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3951), "Awesome news 2" },
-                    { 3, 1, "Awesome news text 3", new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3952), "Awesome news 3" }
+                    { 1, 1, "Awesome news text 1", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2855), "Awesome news 1" },
+                    { 2, 1, "Awesome news text 2", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2856), "Awesome news 2" },
+                    { 3, 1, "Awesome news text 3", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2857), "Awesome news 3" }
                 });
 
             migrationBuilder.CreateIndex(

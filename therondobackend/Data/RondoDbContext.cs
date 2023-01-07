@@ -38,6 +38,10 @@ namespace therondoAPI.Data
             modelBuilder.Entity<NewsPiece>().HasData(n1);
             modelBuilder.Entity<NewsPiece>().HasData(n2);
             modelBuilder.Entity<NewsPiece>().HasData(n3);
+
+            User u1 = new User { UserId = 1, FirstName = "TheFirst", LastName = "Avenger" };
+
+            modelBuilder.Entity<User>().HasData(u1);
         }
     }
 }

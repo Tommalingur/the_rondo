@@ -38,5 +38,20 @@ namespace therondoAPI.Data
         {
             return Users;
         }
+
+        public void CreateUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comment> GetAllComments()
+        {
+            throw new NotImplementedException();
+        }
+
+        public User? GetUserById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

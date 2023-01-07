@@ -7,6 +7,10 @@ namespace therondoAPI.Data.Interfaces
         List<Admin> GetAllAdmins();
         List<Article> GetAllArticles();
         List<User> GetAllUsers();
+        User? GetUserById(int id);
+        List<Comment> GetAllComments();
+
+        void CreateUser(User user);
 
     }
 }

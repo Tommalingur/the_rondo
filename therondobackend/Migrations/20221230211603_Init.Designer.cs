@@ -12,7 +12,7 @@ using therondoAPI.Data;
 namespace therondoAPI.Migrations
 {
     [DbContext(typeof(RondoDbContext))]
-    [Migration("20221229210025_Init")]
+    [Migration("20221230211603_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -98,7 +98,7 @@ namespace therondoAPI.Migrations
                             ArticleId = 1,
                             AdminId = 1,
                             Content = "Awesome article text 1",
-                            CreatedDate = new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3920),
+                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2826),
                             HeadLine = "Awesome article 1"
                         },
                         new
@@ -106,7 +106,7 @@ namespace therondoAPI.Migrations
                             ArticleId = 2,
                             AdminId = 1,
                             Content = "Awesome article text 2",
-                            CreatedDate = new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3921),
+                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2828),
                             HeadLine = "Awesome article 2"
                         },
                         new
@@ -114,7 +114,7 @@ namespace therondoAPI.Migrations
                             ArticleId = 3,
                             AdminId = 1,
                             Content = "Awesome article text 3",
-                            CreatedDate = new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3922),
+                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2829),
                             HeadLine = "Awesome article 3"
                         });
                 });
@@ -178,7 +178,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 1,
                             AdminId = 1,
                             Content = "Awesome news text 1",
-                            CreatedDate = new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3950),
+                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2855),
                             HeadLine = "Awesome news 1"
                         },
                         new
@@ -186,7 +186,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 2,
                             AdminId = 1,
                             Content = "Awesome news text 2",
-                            CreatedDate = new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3951),
+                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2856),
                             HeadLine = "Awesome news 2"
                         },
                         new
@@ -194,7 +194,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 3,
                             AdminId = 1,
                             Content = "Awesome news text 3",
-                            CreatedDate = new DateTime(2022, 12, 29, 21, 0, 25, 450, DateTimeKind.Local).AddTicks(3952),
+                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2857),
                             HeadLine = "Awesome news 3"
                         });
                 });
@@ -218,6 +218,14 @@ namespace therondoAPI.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            FirstName = "TheFirst",
+                            LastName = "Avenger"
+                        });
                 });
 
             modelBuilder.Entity("therondoAPI.Models.Article", b =>

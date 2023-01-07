@@ -85,6 +85,7 @@ export default function Header() {
                 <Link to="/"><HeaderButton>Home</HeaderButton></Link>
                 <Link to="/Articles"><HeaderButton>Articles</HeaderButton></Link>
                 <Link to="/News"><HeaderButton>News</HeaderButton></Link>
+                <Link to="/Users"><HeaderButton>Users</HeaderButton></Link>
                 <HeaderButton onClick={() => setOpenModal(true)}>Sign In</HeaderButton>
 
             </Nav>
