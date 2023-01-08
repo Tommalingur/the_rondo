@@ -58,5 +58,10 @@ namespace therondoAPI.Data
         {
             throw new NotImplementedException();
         }
+
+        public void CreateArticle(Article article)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

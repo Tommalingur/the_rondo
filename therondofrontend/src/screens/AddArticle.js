@@ -5,7 +5,7 @@ import { React, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const SignUpGrid = styled.div`
+const AddArticleGrid = styled.div`
     display: grid;
     width: 100vw;
     align-content: center;
@@ -62,45 +62,37 @@ const HeaderDiv = styled.div`
     grid-area: header;
 `;
 
-function SignUp() {
+function AddArticle() {
     const handleSubmit = e => {
         e.preventDefault()
 
-        axios.post("https://localhost:7199/api/users", { FirstName, LastName, UserName, Password })
+        axios.post("https://localhost:7199/api/articles", { Headline, Content})
             .then(response => {
                 console.log(response)
             })
     }
 
-    const [FirstName, setFirstName] = useState()
-    const [LastName, setLastName] = useState()
-    const [UserName, setUserName] = useState()
-    const [Password, setPassword] = useState()
+    const [Headline, setHeadline] = useState()
+    const [Content, setContent] = useState()
 
     return (
         <div className="MainGrid">
             <Header />
-            <SignUpGrid>
-                <form action="" method="post" onSubmit={ handleSubmit }>
-                    <HeaderDiv><h1>Create a new account</h1></HeaderDiv>
+            <AddArticleGrid>
+                <form action="" method="post" onSubmit={handleSubmit}>
+                    <HeaderDiv><h1>Create a new article</h1></HeaderDiv>
                     <NameDiv>
-                        <label>First Name: </label>
-                            <input type="firstName" name="First Name" onChange={e => setFirstName(e.target.value)} />
-                        <label>Last Name: </label>
-                        <input type="lastName" name="Last Name" onChange={e => setLastName(e.target.value)} />
+                        <label>Headline: </label>
+                        <input type="headline" name="Headline" onChange={e => setHeadline(e.target.value)} />
+                        <label>Content: </label>
+                        <input type="content" name="Content" onChange={e => setContent(e.target.value)} />
                     </NameDiv>
-                    <UserDiv>
-                        <label>User Name: </label>
-                        <input type="userName" name="User Name" onChange={e => setUserName(e.target.value)} />
-                        <label>Password: </label>
-                        <input type="password" name="Password" onChange={e => setPassword(e.target.value)} />
-                    </UserDiv>
-                    <SubmitDiv><input type="submit" value="SignUp"/></SubmitDiv>
+                    <SubmitDiv><input type="submit" value="AddArticle" /></SubmitDiv>
                 </form>
-            </SignUpGrid>
+            </AddArticleGrid>
             <Footer />
         </div>
     );
 }
 
-export default SignUp;
+export default AddArticle;

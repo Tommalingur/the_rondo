@@ -23,9 +23,9 @@ namespace therondoAPI.Data
 
             modelBuilder.Entity<Admin>().HasData(a1);
 
-            Article ar1 = new Article { ArticleId = 1, AdminId = 1, CreatedDate = DateTime.Now, HeadLine = "Lionel Messi can only be stopped by 'prayer'", Content = "Awesome article text 1", ArticleImgUrl = "https://localhost:7199/images/Messi1.jpg" };
-            Article ar2 = new Article { ArticleId = 2, AdminId = 1, CreatedDate = DateTime.Now, HeadLine = "How Barcelona could line up without Lewandowski", Content = "Awesome article text 2", ArticleImgUrl = "https://localhost:7199/images/Lewandowski1.jpg" };
-            Article ar3 = new Article { ArticleId = 3, AdminId = 1, CreatedDate = DateTime.Now, HeadLine = "Three talking points ahead of Atletico Madrid vs Barcelona", Content = "Awesome article text 3", ArticleImgUrl = "https://localhost:7199/images/AtleticovsBarcelona.jpg" };
+            Article ar1 = new Article { ArticleId = 1, CreatedDate = DateTime.Now, HeadLine = "Lionel Messi can only be stopped by 'prayer'", Content = "Awesome article text 1"};
+            Article ar2 = new Article { ArticleId = 2, CreatedDate = DateTime.Now, HeadLine = "How Barcelona could line up without Lewandowski", Content = "Awesome article text 2"};
+            Article ar3 = new Article { ArticleId = 3, CreatedDate = DateTime.Now, HeadLine = "Three talking points ahead of Atletico Madrid vs Barcelona", Content = "Awesome article text 3"};
 
             modelBuilder.Entity<Article>().HasData(ar1);
             modelBuilder.Entity<Article>().HasData(ar2);
@@ -39,7 +39,7 @@ namespace therondoAPI.Data
             modelBuilder.Entity<NewsPiece>().HasData(n2);
             modelBuilder.Entity<NewsPiece>().HasData(n3);
 
-            User u1 = new User { UserId = 1, FirstName = "TheFirst", LastName = "Avenger" };
+            User u1 = new User { UserId = 1, FirstName = "TheFirst", LastName = "Avenger", UserName = "Cap", Password = "America" };
 
             modelBuilder.Entity<User>().HasData(u1);
         }

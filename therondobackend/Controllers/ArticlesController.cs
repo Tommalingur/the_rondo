@@ -39,5 +39,15 @@ namespace therondoAPI.Controllers
 
             return article;
         }
+
+        [HttpPost]
+        [Route("articles")]
+        [EnableCors("CorsPolicy")]
+        public ActionResult<Article> CreateArticle(Article article)
+        {
+            _repo.CreateArticle(article);
+
+            return CreatedAtAction(nameof(GetArticleById), new { id = article.ArticleId }, article);
+        }
     }
 }

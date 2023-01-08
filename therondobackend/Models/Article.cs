@@ -18,8 +18,5 @@ namespace therondoAPI.Models
         [MaxLength(255)]
         public string? Content { get; set; }
         public DateTime CreatedDate { get => createdDate; set => createdDate = value; }
-        public string? ArticleImgUrl { get; set; }
-        public int AdminId { get; set; }
-        public Admin? Admin { get; set; }
     }
 }

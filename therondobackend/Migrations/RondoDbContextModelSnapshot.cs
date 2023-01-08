@@ -69,11 +69,8 @@ namespace therondoAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArticleId"));
 
-                    b.Property<int>("AdminId")
+                    b.Property<int?>("AdminId")
                         .HasColumnType("int");
-
-                    b.Property<string>("ArticleImgUrl")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
                         .HasMaxLength(255)
@@ -96,28 +93,22 @@ namespace therondoAPI.Migrations
                         new
                         {
                             ArticleId = 1,
-                            AdminId = 1,
-                            ArticleImgUrl = "https://localhost:7199/images/Messi1.jpg",
                             Content = "Awesome article text 1",
-                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5878),
+                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3683),
                             HeadLine = "Lionel Messi can only be stopped by 'prayer'"
                         },
                         new
                         {
                             ArticleId = 2,
-                            AdminId = 1,
-                            ArticleImgUrl = "https://localhost:7199/images/Lewandowski1.jpg",
                             Content = "Awesome article text 2",
-                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5880),
+                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3685),
                             HeadLine = "How Barcelona could line up without Lewandowski"
                         },
                         new
                         {
                             ArticleId = 3,
-                            AdminId = 1,
-                            ArticleImgUrl = "https://localhost:7199/images/AtleticovsBarcelona.jpg",
                             Content = "Awesome article text 3",
-                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5881),
+                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3687),
                             HeadLine = "Three talking points ahead of Atletico Madrid vs Barcelona"
                         });
                 });
@@ -181,7 +172,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 1,
                             AdminId = 1,
                             Content = "Awesome news text 1",
-                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5908),
+                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3712),
                             HeadLine = "Awesome news 1"
                         },
                         new
@@ -189,7 +180,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 2,
                             AdminId = 1,
                             Content = "Awesome news text 2",
-                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5910),
+                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3714),
                             HeadLine = "Awesome news 2"
                         },
                         new
@@ -197,7 +188,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 3,
                             AdminId = 1,
                             Content = "Awesome news text 3",
-                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5911),
+                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3715),
                             HeadLine = "Awesome news 3"
                         });
                 });
@@ -211,12 +202,22 @@ namespace therondoAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
 
@@ -227,25 +228,23 @@ namespace therondoAPI.Migrations
                         {
                             UserId = 1,
                             FirstName = "TheFirst",
-                            LastName = "Avenger"
+                            LastName = "Avenger",
+                            Password = "America",
+                            UserName = "Cap"
                         });
                 });
 
             modelBuilder.Entity("therondoAPI.Models.Article", b =>
                 {
-                    b.HasOne("therondoAPI.Models.Admin", "Admin")
+                    b.HasOne("therondoAPI.Models.Admin", null)
                         .WithMany("Articles")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Admin");
+                        .HasForeignKey("AdminId");
                 });
 
             modelBuilder.Entity("therondoAPI.Models.Comment", b =>
                 {
                     b.HasOne("therondoAPI.Models.User", "User")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -269,11 +268,6 @@ namespace therondoAPI.Migrations
                     b.Navigation("Articles");
 
                     b.Navigation("NewsPieces");
-                });
-
-            modelBuilder.Entity("therondoAPI.Models.User", b =>
-                {
-                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

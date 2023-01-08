@@ -12,6 +12,7 @@ namespace therondoAPI.Data.Interfaces
         List<Comment> GetAllComments();
 
         void CreateUser(User user);
+        void CreateArticle(Article article);
 
     }
 }

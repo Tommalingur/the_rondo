@@ -48,5 +48,11 @@ namespace therondoAPI.Data
         {
             return _dbContext.Users.Where(t => t.UserId == id).FirstOrDefault();
         }
+
+        public void CreateArticle(Article article)
+        {
+            _dbContext.Articles.Add(article);
+            _dbContext.SaveChanges();
+        }
     }
 }

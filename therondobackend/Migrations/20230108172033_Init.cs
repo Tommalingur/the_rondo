@@ -35,8 +35,10 @@ namespace therondoAPI.Migrations
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
+                    FirstName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,8 +54,7 @@ namespace therondoAPI.Migrations
                     HeadLine = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Content = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ArticleImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AdminId = table.Column<int>(type: "int", nullable: false)
+                    AdminId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,8 +63,7 @@ namespace therondoAPI.Migrations
                         name: "FK_Articles_Admins_AdminId",
                         column: x => x.AdminId,
                         principalTable: "Admins",
-                        principalColumn: "AdminId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AdminId");
                 });
 
             migrationBuilder.CreateTable(
@@ -115,28 +115,28 @@ namespace therondoAPI.Migrations
                 values: new object[] { 1, "Tómas", "Gunnarsson", "SafePW", "Tommi_Admin" });
 
             migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "UserId", "FirstName", "LastName" },
-                values: new object[] { 1, "TheFirst", "Avenger" });
-
-            migrationBuilder.InsertData(
                 table: "Articles",
-                columns: new[] { "ArticleId", "AdminId", "ArticleImgUrl", "Content", "CreatedDate", "HeadLine" },
+                columns: new[] { "ArticleId", "AdminId", "Content", "CreatedDate", "HeadLine" },
                 values: new object[,]
                 {
-                    { 1, 1, "https://localhost:7199/images/Messi1.jpg", "Awesome article text 1", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5878), "Lionel Messi can only be stopped by 'prayer'" },
-                    { 2, 1, "https://localhost:7199/images/Lewandowski1.jpg", "Awesome article text 2", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5880), "How Barcelona could line up without Lewandowski" },
-                    { 3, 1, "https://localhost:7199/images/AtleticovsBarcelona.jpg", "Awesome article text 3", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5881), "Three talking points ahead of Atletico Madrid vs Barcelona" }
+                    { 1, null, "Awesome article text 1", new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3683), "Lionel Messi can only be stopped by 'prayer'" },
+                    { 2, null, "Awesome article text 2", new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3685), "How Barcelona could line up without Lewandowski" },
+                    { 3, null, "Awesome article text 3", new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3687), "Three talking points ahead of Atletico Madrid vs Barcelona" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "UserId", "FirstName", "LastName", "Password", "UserName" },
+                values: new object[] { 1, "TheFirst", "Avenger", "America", "Cap" });
 
             migrationBuilder.InsertData(
                 table: "NewsPieces",
                 columns: new[] { "NewsPieceId", "AdminId", "Content", "CreatedDate", "HeadLine" },
                 values: new object[,]
                 {
-                    { 1, 1, "Awesome news text 1", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5908), "Awesome news 1" },
-                    { 2, 1, "Awesome news text 2", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5910), "Awesome news 2" },
-                    { 3, 1, "Awesome news text 3", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5911), "Awesome news 3" }
+                    { 1, 1, "Awesome news text 1", new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3712), "Awesome news 1" },
+                    { 2, 1, "Awesome news text 2", new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3714), "Awesome news 2" },
+                    { 3, 1, "Awesome news text 3", new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3715), "Awesome news 3" }
                 });
 
             migrationBuilder.CreateIndex(
