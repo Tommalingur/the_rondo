@@ -51,8 +51,9 @@ namespace therondoAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HeadLine = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Content = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    AdminId = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ArticleImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AdminId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,12 +121,12 @@ namespace therondoAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Articles",
-                columns: new[] { "ArticleId", "AdminId", "Content", "CreatedDate", "HeadLine" },
+                columns: new[] { "ArticleId", "AdminId", "ArticleImgUrl", "Content", "CreatedDate", "HeadLine" },
                 values: new object[,]
                 {
-                    { 1, 1, "Awesome article text 1", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2826), "Awesome article 1" },
-                    { 2, 1, "Awesome article text 2", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2828), "Awesome article 2" },
-                    { 3, 1, "Awesome article text 3", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2829), "Awesome article 3" }
+                    { 1, 1, "https://localhost:7199/images/Messi1.jpg", "Awesome article text 1", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5878), "Lionel Messi can only be stopped by 'prayer'" },
+                    { 2, 1, "https://localhost:7199/images/Lewandowski1.jpg", "Awesome article text 2", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5880), "How Barcelona could line up without Lewandowski" },
+                    { 3, 1, "https://localhost:7199/images/AtleticovsBarcelona.jpg", "Awesome article text 3", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5881), "Three talking points ahead of Atletico Madrid vs Barcelona" }
                 });
 
             migrationBuilder.InsertData(
@@ -133,9 +134,9 @@ namespace therondoAPI.Migrations
                 columns: new[] { "NewsPieceId", "AdminId", "Content", "CreatedDate", "HeadLine" },
                 values: new object[,]
                 {
-                    { 1, 1, "Awesome news text 1", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2855), "Awesome news 1" },
-                    { 2, 1, "Awesome news text 2", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2856), "Awesome news 2" },
-                    { 3, 1, "Awesome news text 3", new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2857), "Awesome news 3" }
+                    { 1, 1, "Awesome news text 1", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5908), "Awesome news 1" },
+                    { 2, 1, "Awesome news text 2", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5910), "Awesome news 2" },
+                    { 3, 1, "Awesome news text 3", new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5911), "Awesome news 3" }
                 });
 
             migrationBuilder.CreateIndex(

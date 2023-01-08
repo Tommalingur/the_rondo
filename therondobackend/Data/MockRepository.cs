@@ -53,5 +53,10 @@ namespace therondoAPI.Data
         {
             throw new NotImplementedException();
         }
+
+        public Article? GetArticleById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

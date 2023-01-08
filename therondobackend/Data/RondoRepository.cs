@@ -29,6 +29,11 @@ namespace therondoAPI.Data
             return _dbContext.Articles.ToList();
         }
 
+        public Article? GetArticleById(int id)
+        {
+            return _dbContext.Articles.Where(t => t.ArticleId == id).FirstOrDefault();
+        }
+
         public List<Comment> GetAllComments()
         {
             return _dbContext.Comments.ToList();

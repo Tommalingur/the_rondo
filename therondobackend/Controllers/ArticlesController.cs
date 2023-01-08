@@ -24,5 +24,20 @@ namespace therondoAPI.Controllers
         {
             return _repo.GetAllArticles();
         }
+
+        [HttpGet]
+        [Route("articles/{id}")]
+        [EnableCors("CorsPolicy")]
+        public ActionResult<Article> GetArticleById(int id)
+        {
+            Article? article = _repo.GetArticleById(id);
+
+            if (article == null)
+            {
+                return NotFound();
+            }
+
+            return article;
+        }
     }
 }

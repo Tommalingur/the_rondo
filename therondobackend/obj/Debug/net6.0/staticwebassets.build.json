@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wpsZYwhd4HpAYSw80afnEoGs3hbms6DBedYeabIyI2E=",
+  "Hash": "mfPeph3Wf7QDkCkUwGRkjVjP6RnGV/PoevfMwwKEJgA=",
   "Source": "therondoAPI",
   "BasePath": "_content/therondoAPI",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\images\\Messi.jpg",
+      "Identity": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\images\\AtleticovsBarcelona.jpg",
       "SourceId": "therondoAPI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\",
       "BasePath": "_content/therondoAPI",
-      "RelativePath": "images/Messi.jpg",
+      "RelativePath": "images/AtleticovsBarcelona.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Messi.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\AtleticovsBarcelona.jpg"
+    },
+    {
+      "Identity": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\images\\Lewandowski1.jpg",
+      "SourceId": "therondoAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\",
+      "BasePath": "_content/therondoAPI",
+      "RelativePath": "images/Lewandowski1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Lewandowski1.jpg"
+    },
+    {
+      "Identity": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\images\\Messi1.jpg",
+      "SourceId": "therondoAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\ntv\\tridjaonn\\lokaverkefni\\therondofrontend\\therondobackend\\wwwroot\\",
+      "BasePath": "_content/therondoAPI",
+      "RelativePath": "images/Messi1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Messi1.jpg"
     }
   ]
 }

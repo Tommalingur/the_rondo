@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Link } from 'react-router-dom';
 
 const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
@@ -110,7 +111,7 @@ export function SignUpModal({ open, onClose }) {
                     Password <UserInput />
                 </InputDiv>
                 <Submit><LinkButton>Submit</LinkButton></Submit>
-                <Create><LinkButton>Create New Account</LinkButton></Create>
+                <Create><Link to="/SignUp"><LinkButton>Create New Account</LinkButton></Link></Create>
             </ModalContainer>
         </Overlay>
     )

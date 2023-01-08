@@ -12,7 +12,7 @@ using therondoAPI.Data;
 namespace therondoAPI.Migrations
 {
     [DbContext(typeof(RondoDbContext))]
-    [Migration("20221230211603_Init")]
+    [Migration("20230107183331_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace therondoAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("ProductVersion", "7.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -75,6 +75,9 @@ namespace therondoAPI.Migrations
                     b.Property<int>("AdminId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ArticleImgUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Content")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
@@ -97,25 +100,28 @@ namespace therondoAPI.Migrations
                         {
                             ArticleId = 1,
                             AdminId = 1,
+                            ArticleImgUrl = "https://localhost:7199/images/Messi1.jpg",
                             Content = "Awesome article text 1",
-                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2826),
-                            HeadLine = "Awesome article 1"
+                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5878),
+                            HeadLine = "Lionel Messi can only be stopped by 'prayer'"
                         },
                         new
                         {
                             ArticleId = 2,
                             AdminId = 1,
+                            ArticleImgUrl = "https://localhost:7199/images/Lewandowski1.jpg",
                             Content = "Awesome article text 2",
-                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2828),
-                            HeadLine = "Awesome article 2"
+                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5880),
+                            HeadLine = "How Barcelona could line up without Lewandowski"
                         },
                         new
                         {
                             ArticleId = 3,
                             AdminId = 1,
+                            ArticleImgUrl = "https://localhost:7199/images/AtleticovsBarcelona.jpg",
                             Content = "Awesome article text 3",
-                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2829),
-                            HeadLine = "Awesome article 3"
+                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5881),
+                            HeadLine = "Three talking points ahead of Atletico Madrid vs Barcelona"
                         });
                 });
 
@@ -178,7 +184,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 1,
                             AdminId = 1,
                             Content = "Awesome news text 1",
-                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2855),
+                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5908),
                             HeadLine = "Awesome news 1"
                         },
                         new
@@ -186,7 +192,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 2,
                             AdminId = 1,
                             Content = "Awesome news text 2",
-                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2856),
+                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5910),
                             HeadLine = "Awesome news 2"
                         },
                         new
@@ -194,7 +200,7 @@ namespace therondoAPI.Migrations
                             NewsPieceId = 3,
                             AdminId = 1,
                             Content = "Awesome news text 3",
-                            CreatedDate = new DateTime(2022, 12, 30, 21, 16, 3, 778, DateTimeKind.Local).AddTicks(2857),
+                            CreatedDate = new DateTime(2023, 1, 7, 18, 33, 31, 576, DateTimeKind.Local).AddTicks(5911),
                             HeadLine = "Awesome news 3"
                         });
                 });

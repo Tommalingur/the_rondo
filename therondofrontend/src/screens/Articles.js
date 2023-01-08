@@ -1,5 +1,6 @@
 import ".././App.css";
 import "./Screens.css";
+import ArticleApi from "../components/ArticleApi";
 import styled from "styled-components";
 import Header from ".././components/Header";
 import Footer from ".././components/Footer";
@@ -26,7 +27,7 @@ function Articles() {
     return (
         <div className="MainGrid">
             <Header />
-            <ArticleGrid><ArticlesList><p>Article1</p><p>Article2</p><p>Article3</p></ArticlesList></ArticleGrid>
+            <ArticleGrid><ArticlesList><ArticleApi/></ArticlesList></ArticleGrid>
             <Footer />
         </div>
 
