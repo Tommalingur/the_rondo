@@ -5,6 +5,7 @@ import Header from ".././components/Header";
 import Footer from ".././components/Footer";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom"
 
 const ArticleGrid = styled.div`
     display: grid;
@@ -25,16 +26,18 @@ const Loading = styled.div`
 
 function Article() {
     const [articles, setArticles] = useState([]);
+    const { id } = useParams();
     const getArticles = async () => {
         const result = await axios.get(
-            "https://localhost:7199/api/articles"
+            //"https://localhost:7199/api/articles"
+            `https://localhost:7199/api/articles/${id}`
         );
         setArticles(result.data);
+        console.log(result.data);
     };
-
     useEffect(() => {
         getArticles();
-    });
+    }, [articles]);
 
     if (articles.length === 0) {
         return (
@@ -47,7 +50,7 @@ function Article() {
     return (
         <ArticleGrid>
             <p></p>
-            <div>{articles.headline}</div>
+            <div>{articles.headLine}</div>
             <div>{articles.content}</div>
         </ArticleGrid>
     );

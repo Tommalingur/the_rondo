@@ -47,7 +47,7 @@ const ArticleApi = () => {
     return (
         <Wrapper>
             {articles.map((article) => (
-                <Link key={article.articleId} to="/Articles/{articleId}">
+                <Link key={article.articleId} to={`/Articles/${article.articleId}`}>
                     <Headline>{article.headLine}</Headline>
                 </Link>
             ))

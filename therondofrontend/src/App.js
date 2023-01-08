@@ -22,7 +22,7 @@ function App() {
                     <Route path="/Users" element={<Users />} />
                     <Route path="/SignUp" element={<SignUp />} />
                     <Route path="/AddArticle" element={<AddArticle />} />
-                    <Route path="/Articles/:id" render={({ match }) => <Article article={articles[match.params.articleId - 1]} />} />
+                    <Route path="/Articles/:id" element={<Article />} />
                 </Routes>
             </BrowserRouter>
         </div>
