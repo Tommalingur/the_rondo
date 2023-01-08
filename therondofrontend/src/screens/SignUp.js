@@ -80,8 +80,9 @@ function SignUp() {
     return (
         <div className="MainGrid">
             <Header />
-            <SignUpGrid>
+            
                 <form action="" method="post" onSubmit={ handleSubmit }>
+                <SignUpGrid>
                     <HeaderDiv><h1>Create a new account</h1></HeaderDiv>
                     <NameDiv>
                         <label>First Name: </label>
@@ -95,9 +96,10 @@ function SignUp() {
                         <label>Password: </label>
                         <input type="password" name="Password" onChange={e => setPassword(e.target.value)} />
                     </UserDiv>
-                    <SubmitDiv><input type="submit" value="SignUp"/></SubmitDiv>
+                    <SubmitDiv><input type="submit" value="SignUp" /></SubmitDiv>
+                </SignUpGrid>
                 </form>
-            </SignUpGrid>
+            
             <Footer />
         </div>
     );

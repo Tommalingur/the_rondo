@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
     padding-top: 2rem;
 `;
 
@@ -20,7 +18,13 @@ const Loading = styled.div`
 
 const Headline = styled.div`
     display: flex;
+    color: var(--clr-secondary);
+    padding-bottom: 2px;
     grid-area: headline;
+    cursor: pointer;
+  &:hover {
+    color: var(--clr-hover);
+  }
 `;
 
 const ArticleApi = () => {
@@ -47,7 +51,7 @@ const ArticleApi = () => {
     return (
         <Wrapper>
             {articles.map((article) => (
-                <Link key={article.articleId} to={`/Articles/${article.articleId}`}>
+                <Link key={article.articleId} to={`/Articles/${article.articleId}`} style={{ textDecoration: 'none' }}>
                     <Headline>{article.headLine}</Headline>
                 </Link>
             ))

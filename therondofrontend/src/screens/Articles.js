@@ -8,9 +8,10 @@ import React from "react";
 
 const ArticleGrid = styled.div`
     display: grid;
-    width: 100vw;
     justify-items: center;
-    algin-items: center;
+    background-color: var(--clr-secondary);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
     ". articles .";
@@ -19,7 +20,8 @@ const ArticleGrid = styled.div`
 
 const ArticlesList = styled.div`
     background-color: var(--clr-secondary);
-    width: 100vw;
+    border: 4px solid var(--clr-primary);
+    width: 100%;
     grid-area: articles;
 `;
 
