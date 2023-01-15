@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Web.Http.Cors;
 using therondoAPI.Data.Interfaces;
 using therondoAPI.Models;
-using EnableCorsAttribute = Microsoft.AspNetCore.Cors.EnableCorsAttribute;
 
 namespace therondoAPI.Controllers
 {
@@ -18,7 +17,6 @@ namespace therondoAPI.Controllers
             _repo = repo;
         }
 
-        [EnableCors("CorsPolicy")]
         [HttpGet]
         [Route("comments")]
         public List<Comment> GetAllComments()

@@ -6,7 +6,7 @@ import { React, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const AddArticleGrid = styled.div`
+const AddNewsGrid = styled.div`
     display: grid;
     width: 100vw;
     background-color: var(--clr-secondary);
@@ -67,11 +67,11 @@ const ContentDiv = styled.div`
     grid-area: content;
 `;
 
-function AddArticle() {
+function AddNews() {
     const handleSubmit = e => {
-        e.preventDefault()
+        e.preventDefault();
 
-        axios.post("https://localhost:7199/api/articles", { Headline, Content })
+        axios.post("https://localhost:7199/api/news", { Headline, Content })
             .then(response => {
                 window.location = "/"
             })
@@ -84,8 +84,8 @@ function AddArticle() {
         <div className="MainGrid">
             <Header />
             <form action="" method="post" onSubmit={handleSubmit}>
-                <AddArticleGrid>
-                    <HeaderDiv><h1>Create a new article</h1></HeaderDiv>
+                <AddNewsGrid>
+                    <HeaderDiv><h1>Create a new news piece</h1></HeaderDiv>
                     <HeadLineDiv>
                         <label>Headline </label>
                         <input type="headline" name="Headline" onChange={e => setHeadline(e.target.value)} style={{ width: "500px", height: "20px" }} />
@@ -93,12 +93,12 @@ function AddArticle() {
                     <ContentDiv><label>Content </label>
                         <textarea type="content" name="Content" onChange={e => setContent(e.target.value)} style={{ width: "600px", height: "400px" }} />
                     </ContentDiv>
-                    <SubmitDiv><SiteButton type="submit" value="AddArticle">Submit</SiteButton></SubmitDiv>
-                </AddArticleGrid>
+                    <SubmitDiv><SiteButton type="submit" value="AddNews">Submit</SiteButton></SubmitDiv>
+                </AddNewsGrid>
             </form>
             <Footer />
         </div>
     );
 }
 
-export default AddArticle;
+export default AddNews;

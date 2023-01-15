@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { HeaderButton } from "./Components";
 import { SignUpModal } from './SignUpModal';
+import { AdminModal } from "./AdminModal";
 import { Link } from 'react-router-dom';
 
 const HeaderGrid = styled.div`
     display: grid;
+    border-image:   
     grid-template-columns: 0,5fr 1fr 1fr 1fr 1fr 1fr 0,5fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
@@ -71,6 +73,7 @@ const Rondo = styled.div`
 export default function Header() {
 
     const [openModal, setOpenModal] = useState(false);
+    const [openAdmin, setOpenAdmin] = useState(false);
 
     const [isNavVisible, setIsNavVisible] = useState(false);
 
@@ -85,8 +88,8 @@ export default function Header() {
                 <Link to="/"><HeaderButton>Home</HeaderButton></Link>
                 <Link to="/Articles"><HeaderButton>Articles</HeaderButton></Link>
                 <Link to="/News"><HeaderButton>News</HeaderButton></Link>
-                <Link to="/Users"><HeaderButton>Users</HeaderButton></Link>
                 <HeaderButton onClick={() => setOpenModal(true)}>Sign In</HeaderButton>
+                <HeaderButton onClick={() => setOpenAdmin(true)}>Admin</HeaderButton>
 
             </Nav>
             <Logo>
@@ -121,6 +124,7 @@ export default function Header() {
 
             </DropDiv>
             <SignUpModal open={openModal} onClose={() => setOpenModal(false)} />
+            <AdminModal open={openAdmin} onClose={() => setOpenAdmin(false)}/>
         </HeaderGrid>
     );
 }

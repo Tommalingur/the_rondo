@@ -15,33 +15,28 @@ namespace therondoAPI.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RondoDB");
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Admin a1 = new Admin { AdminId = 1, FirstName = "Tómas", LastName = "Gunnarsson", UserName = "Tommi_Admin", Password = "SafePW" };
+
+            Admin a1 = new Admin { AdminId = 1, FirstName = "Tómas", LastName = "Gunnarsson", UserName = "TomDaBum", Password = "RosaGottPW" };
 
             modelBuilder.Entity<Admin>().HasData(a1);
 
-            Article ar1 = new Article { ArticleId = 1, CreatedDate = DateTime.Now, HeadLine = "Lionel Messi can only be stopped by 'prayer'", Content = "Awesome article text 1"};
-            Article ar2 = new Article { ArticleId = 2, CreatedDate = DateTime.Now, HeadLine = "How Barcelona could line up without Lewandowski", Content = "Awesome article text 2"};
-            Article ar3 = new Article { ArticleId = 3, CreatedDate = DateTime.Now, HeadLine = "Three talking points ahead of Atletico Madrid vs Barcelona", Content = "Awesome article text 3"};
-
-            modelBuilder.Entity<Article>().HasData(ar1);
-            modelBuilder.Entity<Article>().HasData(ar2);
-            modelBuilder.Entity<Article>().HasData(ar3);
-
-            NewsPiece n1 = new NewsPiece { NewsPieceId = 1, AdminId = 1, CreatedDate = DateTime.Now, HeadLine = "Awesome news 1", Content = "Awesome news text 1" };
-            NewsPiece n2 = new NewsPiece { NewsPieceId = 2, AdminId = 1, CreatedDate = DateTime.Now, HeadLine = "Awesome news 2", Content = "Awesome news text 2" };
-            NewsPiece n3 = new NewsPiece { NewsPieceId = 3, AdminId = 1, CreatedDate = DateTime.Now, HeadLine = "Awesome news 3", Content = "Awesome news text 3" };
-
-            modelBuilder.Entity<NewsPiece>().HasData(n1);
-            modelBuilder.Entity<NewsPiece>().HasData(n2);
-            modelBuilder.Entity<NewsPiece>().HasData(n3);
-
-            User u1 = new User { UserId = 1, FirstName = "TheFirst", LastName = "Avenger", UserName = "Cap", Password = "America" };
+            User u1 = new User { UserId = 1, FirstName = "Usain", LastName = "Bolt", UserName = "2Fast", Password = "Hlaupagikkur" };
 
             modelBuilder.Entity<User>().HasData(u1);
+
+            Article ar1 = new Article { ArticleId = 1, HeadLine = "The Rondo is in the air!", Content = "The Rondo is a new site with news and articles related to the beautiful game. It is now officially open for business. Be sure to check in daily for new content!"};
+
+            modelBuilder.Entity<Article>().HasData(ar1);
+
+            NewsPiece n1 = new NewsPiece { NewsPieceId = 1, HeadLine = "The Rondo also has news pieces", Content = "Not only does The Rondo have articles about everything from tactics and football history to upcoming stars and opinions of our team of writers. We will also keep tabs of news from around the globe so you can get all your football content in one place!"};
+
+            modelBuilder.Entity<NewsPiece>().HasData(n1);
+
         }
     }
 }

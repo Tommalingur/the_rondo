@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using therondoAPI.Data.Interfaces;
 using therondoAPI.Models;
-using EnableCorsAttribute = Microsoft.AspNetCore.Cors.EnableCorsAttribute;
+
 
 namespace therondoAPI.Controllers
 {
@@ -18,10 +16,9 @@ namespace therondoAPI.Controllers
             _repo = repo;
         }
 
-        
+
         [HttpGet]
         [Route("users")]
-        [EnableCors("CorsPolicy")]
 
         public List<User> GetAllUsers()
         {
@@ -30,7 +27,6 @@ namespace therondoAPI.Controllers
 
         [HttpGet]
         [Route("users/{id}")]
-        [EnableCors("CorsPolicy")]
         public ActionResult<User> GetUserById(int id)
         {
             User? user = _repo.GetUserById(id);
@@ -45,7 +41,6 @@ namespace therondoAPI.Controllers
 
         [HttpPost]
         [Route("users")]
-        [EnableCors("CorsPolicy")]
         public ActionResult<User> CreateUser(User user)
         {
             _repo.CreateUser(user);

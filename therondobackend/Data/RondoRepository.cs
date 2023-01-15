@@ -29,9 +29,19 @@ namespace therondoAPI.Data
             return _dbContext.Articles.ToList();
         }
 
+        public List<NewsPiece> GetAllNews()
+        {
+            return _dbContext.NewsPieces.ToList();
+        }
+
         public Article? GetArticleById(int id)
         {
             return _dbContext.Articles.Where(t => t.ArticleId == id).FirstOrDefault();
+        }
+
+        public NewsPiece? GetNewsById(int id)
+        {
+            return _dbContext.NewsPieces.Where(t => t.NewsPieceId == id).FirstOrDefault();
         }
 
         public List<Comment> GetAllComments()
@@ -43,7 +53,6 @@ namespace therondoAPI.Data
         {
             return _dbContext.Users.ToList();
         }
-
         public User? GetUserById(int id)
         {
             return _dbContext.Users.Where(t => t.UserId == id).FirstOrDefault();
@@ -52,6 +61,11 @@ namespace therondoAPI.Data
         public void CreateArticle(Article article)
         {
             _dbContext.Articles.Add(article);
+            _dbContext.SaveChanges();
+        }
+        public void CreateNewsPiece(NewsPiece newsPiece)
+        {
+            _dbContext.NewsPieces.Add(newsPiece);
             _dbContext.SaveChanges();
         }
     }

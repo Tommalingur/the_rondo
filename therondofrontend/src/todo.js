@@ -1,30 +1,17 @@
 //TODO LIST.
 
 // Screens.
-// Articles: Create three mock article screens.
-// Connect mock articles to database.
-// Create thumbnail for article screens for article navigation.
-// Create routing for articles on Articles and Home screens.
-// Let articles show in time order on Articles and Home Screens.
+// Fix look
 
-// News: Create three mock news screens.
-// Connect mock news to database.
-// Create thumbnail for news screens for news navigation.
-// Create routing for news on News and Home screens.
-// Let news show in time order on News and Home screens.
+// News:
+// Fix look
 
-// Home: Make Articles and News show in time order on screen.
-// Make Articles and News thumbnails routable to article or news screens.
-// Connect Sign in popup to User db to accept username and password.
-// Add error message if credentials are incorrect or are not in database.
+// Home:
+// Fix look
 
-// SignUp: Create a Sign Up screen routed through Sign Up button in Sign In popup at Home screen.
-// Connect Sign Up screen to user database to enable adding new users.
-
-// Add Content: Create Admin screen to add content.
-// Admin should be able to write a Headline and Content for new content, then choose if this is a News or Article content.
-// Admin should also be able to add a picture.
-// The created content should be time stamped and show on top in Article or News thumbnails on Home, Article or News screens.
+// AddContent:
+// Add function to add picture to content
+// Fix look
 
 // Admin: Make admin user so that he has privileges (Check out RBAC(Role Base Access Control) for authentication and authorization)
 // Admin should be able to access Add Content screen, but normal users should not.

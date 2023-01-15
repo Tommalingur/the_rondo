@@ -3,6 +3,7 @@ import "../App.css";
 import axios from "axios";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
+import moment from "moment";
 
 const Wrapper = styled.div`
     display: flex;
@@ -18,8 +19,13 @@ const Loading = styled.div`
 
 const Headline = styled.div`
     display: flex;
-    color: var(--clr-secondary);
+    justify-content: space-between;
     padding-bottom: 2px;
+    height: 60px;
+    color: var(--clr-primary);
+    align-items: center;
+    text-align: start;
+    border-bottom: 1px solid var(--clr-primary);
     grid-area: headline;
     cursor: pointer;
   &:hover {
@@ -27,20 +33,20 @@ const Headline = styled.div`
   }
 `;
 
-const ArticleApi = () => {
-    const [articles, setArticles] = useState([]);
-    const getArticles = async () => {
+const ListNewsApi = () => {
+    const [newsPieces, setNewsPieces] = useState([]);
+    const getNewsPieces = async () => {
         const result = await axios.get(
-            "https://localhost:7199/api/articles"
+            "https://localhost:7199/api/news"
         );
-        setArticles(result.data);
+        setNewsPieces(result.data);
     };
 
     useEffect(() => {
-        getArticles();
+        getNewsPieces();
     }, []);
 
-    if (articles.length === 0) {
+    if (newsPieces.length === 0) {
         return (
             <Wrapper>
                 <Loading>Loading...</Loading>
@@ -50,9 +56,12 @@ const ArticleApi = () => {
 
     return (
         <Wrapper>
-            {articles.map((article) => (
-                <Link key={article.articleId} to={`/Articles/${article.articleId}`} style={{ textDecoration: 'none' }}>
-                    <Headline>{article.headLine}</Headline>
+            {newsPieces.slice(0).reverse().map((newsPiece) => (
+                <Link key={newsPiece.newsPieceId} to={`/News/${newsPiece.newsPieceId}`} style={{ textDecoration: 'none' }}>
+                    <Headline>
+                        <h4>{newsPiece.headLine}</h4>
+                        <p>{moment(newsPiece.createdDate).fromNow()}</p>
+                    </Headline>
                 </Link>
             ))
             }
@@ -60,4 +69,4 @@ const ArticleApi = () => {
     );
 };
 
-export default ArticleApi;
+export default ListNewsApi;

@@ -4,7 +4,6 @@ namespace therondoAPI.Models
 {
     public class Admin
     {
-
         public Admin()
         {
         }

@@ -22,7 +22,7 @@ const ModalContainer = styled.div`
     background-color: var(--clr-secondary);
     grid-template-areas:
     "top top"
-    "input submit"
+    "create create"
     "create create";
     color: var(--clr-primary);
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
@@ -40,38 +40,18 @@ const XBtn = styled.button`
     cursor: pointer;
         &:hover {
             color: var(--clr-hover);
-`
-
-const InputDiv = styled.div`
-    display: grid;
-    grid-area: input;
-    align-self: center;
-`
+`;
 
 const Header = styled.text`
     align-self: center;
     display: grid;
     grid-area: top
-`
-
-const Submit = styled.div`
-    display: grid;
-    grid-area: submit;
-`
+`;
 
 const Create = styled.div`
     display: grid;
     grid-area: create;
-`
-
-const UserInput = styled.input`
-    border: 3px solid var(--clr-secondary);
-    border-radius: 20px;
-    height: 20px;
-    width: 200px;
-    align-self: center;
-    justify-self: center;
-`
+`;
 
 const LinkButton = styled.button`
     background-color: var(--clr-alert);
@@ -99,20 +79,18 @@ const LinkButton = styled.button`
     `}
 `;
 
-export function SignUpModal({ open, onClose }) {
+export function AdminModal({ open, onClose }) {
     if (!open) return null;
 
     return (
         <Overlay>
             <ModalContainer>
                 <XBtn onClick={onClose}>X</XBtn>
-                <Header>Please sign in to your account</Header>
-                <InputDiv>
-                    Username <UserInput />
-                    Password <UserInput />
-                </InputDiv>
-                <Submit><LinkButton>Submit</LinkButton></Submit>
-                <Create><Link to="/SignUp"><LinkButton>Create New Account</LinkButton></Link></Create>
+                <Header>Welcome Admin.</Header>
+                <Create>
+                    <Link to="/AddArticle"><LinkButton>Add a new article</LinkButton></Link>
+                    <Link to="/AddNews"><LinkButton>Add a new newspiece</LinkButton></Link>
+                </Create>
             </ModalContainer>
         </Overlay>
     )

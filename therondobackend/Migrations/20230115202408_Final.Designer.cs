@@ -12,8 +12,8 @@ using therondoAPI.Data;
 namespace therondoAPI.Migrations
 {
     [DbContext(typeof(RondoDbContext))]
-    [Migration("20230108172033_Init")]
-    partial class Init
+    [Migration("20230115202408_Final")]
+    partial class Final
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,8 +59,8 @@ namespace therondoAPI.Migrations
                             AdminId = 1,
                             FirstName = "Tómas",
                             LastName = "Gunnarsson",
-                            Password = "SafePW",
-                            UserName = "Tommi_Admin"
+                            Password = "RosaGottPW",
+                            UserName = "TomDaBum"
                         });
                 });
 
@@ -76,8 +76,7 @@ namespace therondoAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -96,23 +95,9 @@ namespace therondoAPI.Migrations
                         new
                         {
                             ArticleId = 1,
-                            Content = "Awesome article text 1",
-                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3683),
-                            HeadLine = "Lionel Messi can only be stopped by 'prayer'"
-                        },
-                        new
-                        {
-                            ArticleId = 2,
-                            Content = "Awesome article text 2",
-                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3685),
-                            HeadLine = "How Barcelona could line up without Lewandowski"
-                        },
-                        new
-                        {
-                            ArticleId = 3,
-                            Content = "Awesome article text 3",
-                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3687),
-                            HeadLine = "Three talking points ahead of Atletico Madrid vs Barcelona"
+                            Content = "The Rondo is a new site with news and articles related to the beautiful game. It is now officially open for business. Be sure to check in daily for new content!",
+                            CreatedDate = new DateTime(2023, 1, 15, 20, 24, 8, 471, DateTimeKind.Local).AddTicks(7736),
+                            HeadLine = "The Rondo is in the air!"
                         });
                 });
 
@@ -149,12 +134,11 @@ namespace therondoAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NewsPieceId"));
 
-                    b.Property<int>("AdminId")
+                    b.Property<int?>("AdminId")
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -173,26 +157,9 @@ namespace therondoAPI.Migrations
                         new
                         {
                             NewsPieceId = 1,
-                            AdminId = 1,
-                            Content = "Awesome news text 1",
-                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3712),
-                            HeadLine = "Awesome news 1"
-                        },
-                        new
-                        {
-                            NewsPieceId = 2,
-                            AdminId = 1,
-                            Content = "Awesome news text 2",
-                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3714),
-                            HeadLine = "Awesome news 2"
-                        },
-                        new
-                        {
-                            NewsPieceId = 3,
-                            AdminId = 1,
-                            Content = "Awesome news text 3",
-                            CreatedDate = new DateTime(2023, 1, 8, 17, 20, 33, 474, DateTimeKind.Local).AddTicks(3715),
-                            HeadLine = "Awesome news 3"
+                            Content = "Not only does The Rondo have articles about everything from tactics and football history to upcoming stars and opinions of our team of writers. We will also keep tabs of news from around the globe so you can get all your football content in one place!",
+                            CreatedDate = new DateTime(2023, 1, 15, 20, 24, 8, 471, DateTimeKind.Local).AddTicks(7755),
+                            HeadLine = "The Rondo also has news pieces"
                         });
                 });
 
@@ -230,10 +197,10 @@ namespace therondoAPI.Migrations
                         new
                         {
                             UserId = 1,
-                            FirstName = "TheFirst",
-                            LastName = "Avenger",
-                            Password = "America",
-                            UserName = "Cap"
+                            FirstName = "Usain",
+                            LastName = "Bolt",
+                            Password = "Hlaupagikkur",
+                            UserName = "2Fast"
                         });
                 });
 
@@ -257,13 +224,9 @@ namespace therondoAPI.Migrations
 
             modelBuilder.Entity("therondoAPI.Models.NewsPiece", b =>
                 {
-                    b.HasOne("therondoAPI.Models.Admin", "Admin")
+                    b.HasOne("therondoAPI.Models.Admin", null)
                         .WithMany("NewsPieces")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Admin");
+                        .HasForeignKey("AdminId");
                 });
 
             modelBuilder.Entity("therondoAPI.Models.Admin", b =>

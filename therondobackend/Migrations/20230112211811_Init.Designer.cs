@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using therondoAPI.Data;
 
@@ -11,9 +12,11 @@ using therondoAPI.Data;
 namespace therondoAPI.Migrations
 {
     [DbContext(typeof(RondoDbContext))]
-    partial class RondoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230112211811_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,7 +96,7 @@ namespace therondoAPI.Migrations
                         {
                             ArticleId = 1,
                             Content = "The Rondo is a new site with news and articles related to the beautiful game. It is now officially open for business. Be sure to check in daily for new content!",
-                            CreatedDate = new DateTime(2023, 1, 15, 20, 24, 8, 471, DateTimeKind.Local).AddTicks(7736),
+                            CreatedDate = new DateTime(2023, 1, 12, 21, 18, 11, 250, DateTimeKind.Local).AddTicks(3685),
                             HeadLine = "The Rondo is in the air!"
                         });
                 });
@@ -135,7 +138,8 @@ namespace therondoAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -155,7 +159,7 @@ namespace therondoAPI.Migrations
                         {
                             NewsPieceId = 1,
                             Content = "Not only does The Rondo have articles about everything from tactics and football history to upcoming stars and opinions of our team of writers. We will also keep tabs of news from around the globe so you can get all your football content in one place!",
-                            CreatedDate = new DateTime(2023, 1, 15, 20, 24, 8, 471, DateTimeKind.Local).AddTicks(7755),
+                            CreatedDate = new DateTime(2023, 1, 12, 21, 18, 11, 250, DateTimeKind.Local).AddTicks(3708),
                             HeadLine = "The Rondo also has news pieces"
                         });
                 });

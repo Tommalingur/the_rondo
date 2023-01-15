@@ -63,5 +63,20 @@ namespace therondoAPI.Data
         {
             throw new NotImplementedException();
         }
+
+        public List<NewsPiece> GetAllNews()
+        {
+            throw new NotImplementedException();
+        }
+
+        public NewsPiece? GetNewsById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateNewsPiece(NewsPiece newsPiece)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

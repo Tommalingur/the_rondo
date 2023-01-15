@@ -64,11 +64,11 @@ const HeaderDiv = styled.div`
 
 function SignUp() {
     const handleSubmit = e => {
-        e.preventDefault()
+        e.preventDefault();
 
         axios.post("https://localhost:7199/api/users", { FirstName, LastName, UserName, Password })
             .then(response => {
-                console.log(response)
+                window.location = "/"
             })
     }
 
@@ -80,13 +80,13 @@ function SignUp() {
     return (
         <div className="MainGrid">
             <Header />
-            
-                <form action="" method="post" onSubmit={ handleSubmit }>
+
+            <form action="" method="post" onSubmit={handleSubmit}>
                 <SignUpGrid>
                     <HeaderDiv><h1>Create a new account</h1></HeaderDiv>
                     <NameDiv>
                         <label>First Name: </label>
-                            <input type="firstName" name="First Name" onChange={e => setFirstName(e.target.value)} />
+                        <input type="firstName" name="First Name" onChange={e => setFirstName(e.target.value)} />
                         <label>Last Name: </label>
                         <input type="lastName" name="Last Name" onChange={e => setLastName(e.target.value)} />
                     </NameDiv>
@@ -98,8 +98,8 @@ function SignUp() {
                     </UserDiv>
                     <SubmitDiv><input type="submit" value="SignUp" /></SubmitDiv>
                 </SignUpGrid>
-                </form>
-            
+            </form>
+
             <Footer />
         </div>
     );

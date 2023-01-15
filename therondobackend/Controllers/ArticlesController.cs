@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using therondoAPI.Data.Interfaces;
 using therondoAPI.Models;
-using EnableCorsAttribute = Microsoft.AspNetCore.Cors.EnableCorsAttribute;
 
 namespace therondoAPI.Controllers
 {
@@ -17,7 +14,6 @@ namespace therondoAPI.Controllers
             _repo = repo;
         }
 
-        [EnableCors("CorsPolicy")]
         [HttpGet]
         [Route("articles")]
         public List<Article> GetAllArticles()
@@ -27,7 +23,6 @@ namespace therondoAPI.Controllers
 
         [HttpGet]
         [Route("articles/{id}")]
-        [EnableCors("CorsPolicy")]
         public ActionResult<Article> GetArticleById(int id)
         {
             Article? article = _repo.GetArticleById(id);
@@ -42,7 +37,6 @@ namespace therondoAPI.Controllers
 
         [HttpPost]
         [Route("articles")]
-        [EnableCors("CorsPolicy")]
         public ActionResult<Article> CreateArticle(Article article)
         {
             _repo.CreateArticle(article);
